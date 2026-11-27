@@ -51,3 +51,15 @@
 .nav-links a:hover:after{transform:scaleX(1)}
 @media(max-width:760px){.nav{min-height:88px;gap:12px;padding:12px 5vw;align-items:center}.brand-monogram{width:42px;height:42px;font-size:20px}.brand-wordmark{font-size:14px;letter-spacing:.14em}.brand-wordmark small{font-size:7px}.nav-links{max-width:66%;gap:4px 8px;padding:6px}.nav-links a{font-size:8px;padding:8px 4px}.nav-links a:after{left:4px;right:4px}}
 @media(prefers-reduced-motion:reduce){.nav-links a,.nav-links a:after{transition:none}}
+
+/* Keep Duke Vadis's face clear: anchor campaign copy below the portrait focal area */
+.banner-image{object-position:center 24%}
+.banner-content{top:auto;bottom:clamp(92px,13vh,140px);transform:none;left:clamp(28px,7vw,110px);max-width:min(520px,62vw);padding:clamp(22px,3vw,40px)}
+.banner-content h1{font-size:clamp(46px,6vw,82px);margin:18px 0}
+.banner-content .button{margin-top:16px}
+@media(max-width:760px){
+ .banner-image{object-position:54% 18%}
+ .banner-content{left:6vw;right:auto;bottom:108px;max-width:88vw;padding:18px 18px}
+ .banner-content h1{font-size:clamp(40px,10vw,58px);margin:12px 0}
+ .banner-content .button{margin-top:10px;padding:13px 16px}
+}
