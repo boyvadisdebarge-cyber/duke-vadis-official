@@ -7,7 +7,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(name="HomePageContent", fields=[
             ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
             ("site_name", models.CharField(default="DUKE VADIS", max_length=120)),
-            ("hero_title", models.CharField(default="A SOUND THAT LIFTS THE SOUL", max_length=200)),
+            ("hero_title", models.CharField(default="DUKE VADIS", max_length=200)),
             ("hero_subtitle", models.TextField(default="Welcome to the official home of Duke Vadis.")),
             ("about_text", models.TextField(default="Duke Vadis is driven by faith, creativity and the power of music to inspire.")),
             ("updated_at", models.DateTimeField(auto_now=True)),
