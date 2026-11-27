@@ -1,5 +1,13 @@
 from django.contrib import admin
-from .models import BookingRequest, ContactMessage, MusicRelease, Service, SiteProfile, Souvenir
+from .models import BookingRequest, ContactMessage, MusicRelease, PromoBanner, Service, SiteProfile, Souvenir
+
+@admin.register(PromoBanner)
+class PromoBannerAdmin(admin.ModelAdmin):
+    list_display = ("title", "is_active", "display_order", "created_at")
+    list_filter = ("is_active",)
+    list_editable = ("is_active", "display_order")
+    search_fields = ("title", "subtitle")
+    fields = ("title", "subtitle", "image", "button_text", "button_url", "is_active", "display_order")
 
 @admin.register(MusicRelease)
 class MusicReleaseAdmin(admin.ModelAdmin):
