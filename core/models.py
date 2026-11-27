@@ -13,6 +13,20 @@ class MusicRelease(models.Model):
     def __str__(self):
         return self.title
 
+class PromoBanner(models.Model):
+    title = models.CharField(max_length=180, help_text="Main headline shown over the banner")
+    subtitle = models.CharField(max_length=240, blank=True, help_text="Short supporting line, e.g. NEW SINGLE • OUT NOW")
+    image = models.ImageField(upload_to="promo-banners/")
+    button_text = models.CharField(max_length=60, blank=True, default="Discover the music")
+    button_url = models.CharField(max_length=300, blank=True, default="#music")
+    is_active = models.BooleanField(default=True)
+    display_order = models.PositiveIntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        ordering = ["display_order", "-created_at"]
+    def __str__(self):
+        return self.title
+
 class SiteProfile(models.Model):
     about_heading = models.CharField(max_length=180, default="A life shaped by faith and music")
     about_text = models.TextField(default="Duke Vadis shares a message of faith, hope and praise through gospel music, creative experiences and meaningful connections.")
