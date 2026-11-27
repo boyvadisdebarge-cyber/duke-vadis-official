@@ -78,3 +78,10 @@
  .banner-content h1{font-size:clamp(38px,10vw,58px);margin:10px 0}
  .banner-subtitle{font-size:13px;line-height:1.5}
 }
+
+/* Campaign-poster footer treatment */
+.site-footer{position:relative;isolation:isolate;overflow:hidden;background-image:linear-gradient(90deg,rgba(8,7,6,.94) 0%,rgba(10,9,8,.78) 48%,rgba(8,7,6,.91) 100%),linear-gradient(0deg,rgba(8,7,6,.9),rgba(8,7,6,.25)),url("../POSTER.png");background-size:cover;background-position:center 42%;background-repeat:no-repeat}
+.site-footer:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 18% 12%,rgba(216,181,107,.18),transparent 42%),linear-gradient(135deg,transparent 35%,rgba(216,181,107,.07));pointer-events:none}
+.site-footer .footer-top,.site-footer .footer-nav,.site-footer .footer-bottom{position:relative}
+.site-footer .footer-nav{background:rgba(7,7,6,.5);border-color:rgba(230,197,132,.55);box-shadow:inset 0 1px rgba(255,255,255,.13),0 14px 36px rgba(0,0,0,.35)}
+@media(max-width:760px){.site-footer{background-position:56% center}}
