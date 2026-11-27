@@ -212,3 +212,10 @@ animation:service-metallic-sparkle 32s linear infinite}
 @keyframes worship-sway{0%,100%{transform:rotate(-1.8deg) translateY(0)}50%{transform:rotate(1.8deg) translateY(-3px)}}
 @media(prefers-reduced-motion:reduce){#services .worship-person{animation:none}}
 @media(max-width:620px){#services .worship-scene{height:170px;opacity:.3}#services:before{opacity:.72}}
+
+/* Fuller, taller congregation silhouette */
+#services .worship-scene{height:clamp(230px,30vw,360px);opacity:.46}
+#services .worship-person{transform-box:fill-box;transform-origin:50% 100%;animation:worship-sway 6.2s ease-in-out infinite}
+#services .worship-person:nth-of-type(3n){animation-delay:-2.1s}
+#services .worship-person:nth-of-type(4n){animation-delay:-3.4s}
+@media(max-width:620px){#services .worship-scene{height:220px;opacity:.32}}
