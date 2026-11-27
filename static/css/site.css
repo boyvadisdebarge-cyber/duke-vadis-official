@@ -179,3 +179,22 @@ background-size:100% 100%;transform-origin:50% 0;animation:site-light-sweep 26s 
 body>*{position:relative;z-index:1}
 @keyframes site-light-sweep{0%{transform:translate3d(-1.5%,0,0) scale(1);filter:hue-rotate(-8deg)}50%{transform:translate3d(1.5%,1%,0) scale(1.035);filter:hue-rotate(8deg)}100%{transform:translate3d(-.5%,0,0) scale(1.015);filter:hue-rotate(-3deg)}}
 @media(prefers-reduced-motion:reduce){body:before{animation:none;transform:none}}
+
+
+/* Fine gold and silver sparkle drifting through the Services section */
+#services{position:relative;isolation:isolate;overflow:hidden}
+#services:before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.72;background-image:
+radial-gradient(circle,rgba(255,220,145,.98) 0 1.1px,rgba(216,181,107,.48) 1.8px,transparent 3.5px),
+radial-gradient(circle,rgba(245,248,255,.95) 0 .9px,rgba(197,209,224,.48) 1.7px,transparent 3.2px),
+radial-gradient(circle,rgba(255,239,198,.88) 0 .8px,transparent 2.8px),
+radial-gradient(circle,rgba(220,230,244,.8) 0 .8px,transparent 2.7px);
+background-size:113px 127px,157px 181px,211px 193px,263px 229px;
+background-position:13px 19px,71px 43px,29px 107px,121px 67px;
+animation:service-metallic-sparkle 32s linear infinite}
+#services>*{position:relative;z-index:1}
+#services .info-card{border-color:rgba(216,181,107,.48);box-shadow:inset 0 1px rgba(255,255,255,.045),0 12px 32px rgba(0,0,0,.16);transition:border-color .35s ease,box-shadow .35s ease,transform .35s ease}
+#services .info-card:hover{border-color:rgba(244,215,158,.9);box-shadow:inset 0 1px rgba(255,255,255,.1),0 14px 38px rgba(0,0,0,.3),0 0 24px rgba(216,181,107,.16);transform:translateY(-3px)}
+#services .card-mark{display:inline-block;text-shadow:0 0 12px rgba(238,204,135,.7);animation:service-star-glow 3.6s ease-in-out infinite}
+@keyframes service-metallic-sparkle{0%{background-position:13px 19px,71px 43px,29px 107px,121px 67px}100%{background-position:126px 146px,228px 224px,240px 300px,384px 296px}}
+@keyframes service-star-glow{0%,100%{opacity:.78;text-shadow:0 0 5px rgba(238,204,135,.25)}50%{opacity:1;text-shadow:0 0 17px rgba(238,204,135,.95)}}
+@media(prefers-reduced-motion:reduce){#services:before,#services .card-mark{animation:none}#services .info-card{transition:none}}
