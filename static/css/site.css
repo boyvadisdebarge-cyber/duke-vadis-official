@@ -198,3 +198,17 @@ animation:service-metallic-sparkle 32s linear infinite}
 @keyframes service-metallic-sparkle{0%{background-position:13px 19px,71px 43px,29px 107px,121px 67px}100%{background-position:126px 146px,228px 224px,240px 300px,384px 296px}}
 @keyframes service-star-glow{0%,100%{opacity:.78;text-shadow:0 0 5px rgba(238,204,135,.25)}50%{opacity:1;text-shadow:0 0 17px rgba(238,204,135,.95)}}
 @media(prefers-reduced-motion:reduce){#services:before,#services .card-mark{animation:none}#services .info-card{transition:none}}
+
+
+/* Worshipping congregation beneath the existing foreground gold/silver sparkles */
+#services:before{z-index:2;opacity:.82}
+#services .worship-scene{position:absolute;z-index:1;left:0;right:0;bottom:0;height:clamp(150px,22vw,285px);pointer-events:none;opacity:.42;overflow:hidden;mask-image:linear-gradient(to bottom,transparent 0%,#000 24%,#000 100%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 24%,#000 100%)}
+#services .worship-crowd{display:block;width:100%;height:100%;filter:drop-shadow(0 0 12px rgba(216,181,107,.3))}
+#services .worship-person{transform-box:fill-box;transform-origin:50% 100%;animation:worship-sway 5.8s ease-in-out infinite}
+#services .worship-person.p2,#services .worship-person.p6{animation-delay:-1.7s}
+#services .worship-person.p3,#services .worship-person.p7{animation-delay:-3.1s}
+#services .worship-person.p4,#services .worship-person.p8{animation-delay:-.8s}
+#services .section-head,#services .card-grid{position:relative;z-index:3}
+@keyframes worship-sway{0%,100%{transform:rotate(-1.8deg) translateY(0)}50%{transform:rotate(1.8deg) translateY(-3px)}}
+@media(prefers-reduced-motion:reduce){#services .worship-person{animation:none}}
+@media(max-width:620px){#services .worship-scene{height:170px;opacity:.3}#services:before{opacity:.72}}
