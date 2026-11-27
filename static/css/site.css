@@ -244,3 +244,24 @@ animation:worship-smoke-rise 19s ease-in-out infinite alternate}
 @keyframes worship-smoke-rise{0%{transform:translate3d(0,5%,0) scale(1);opacity:.28}100%{transform:translate3d(0,-8%,0) scale(1.12);opacity:.5}}
 @media(max-width:620px){#services .worship-crowd{opacity:.2}#services .worship-scene:before{filter:blur(22px);opacity:.34}}
 @media(prefers-reduced-motion:reduce){#services .worship-scene:before{animation:none}}
+
+
+/* Transparent glass envelope for the Get in Touch experience */
+.connect{position:relative;isolation:isolate;padding:clamp(64px,9vw,118px) clamp(20px,6vw,88px)}
+.contact-envelope{position:relative;isolation:isolate;max-width:980px;margin:0 auto;padding:clamp(30px,5vw,68px);overflow:hidden;border:1px solid rgba(238,211,158,.72);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.19),rgba(255,255,255,.075) 42%,rgba(216,181,107,.055) 100%);box-shadow:inset 0 1px 1px rgba(255,255,255,.42),inset 0 -1px rgba(255,255,255,.08),0 28px 80px rgba(0,0,0,.48),0 0 34px rgba(216,181,107,.12);backdrop-filter:blur(26px) saturate(155%);-webkit-backdrop-filter:blur(26px) saturate(155%)}
+.contact-envelope:before{content:"";position:absolute;inset:10px;border:1px solid rgba(255,255,255,.13);border-radius:12px;pointer-events:none;z-index:-1}
+.contact-envelope:after{content:"";position:absolute;left:0;right:0;top:0;height:42%;background:linear-gradient(135deg,transparent 49.6%,rgba(245,220,174,.22) 50%,transparent 50.5%),linear-gradient(225deg,transparent 49.6%,rgba(245,220,174,.16) 50%,transparent 50.5%);opacity:.68;pointer-events:none;z-index:-1}
+.envelope-fold{position:absolute;top:-1px;left:50%;width:min(52%,470px);height:clamp(70px,10vw,130px);transform:translateX(-50%);clip-path:polygon(0 0,100% 0,50% 100%);background:linear-gradient(180deg,rgba(255,255,255,.2),rgba(216,181,107,.055));border-top:1px solid rgba(255,255,255,.25);filter:drop-shadow(0 5px 8px rgba(0,0,0,.15));opacity:.78;pointer-events:none}
+.envelope-content{position:relative;z-index:1;max-width:760px;margin:0 auto;text-align:center}
+.contact-envelope h2{margin:12px 0 16px;font-size:clamp(38px,5.5vw,66px);font-weight:400;color:#fff5e5;text-shadow:0 3px 22px rgba(0,0,0,.5)}
+.contact-envelope h2 em{color:#e8c477;font-style:normal}
+.contact-envelope .envelope-content>p:not(.eyebrow){max-width:620px;margin:0 auto 30px;color:rgba(255,245,229,.82);font:14px/1.8 Arial,sans-serif}
+.contact-envelope .site-form{max-width:700px;margin:0 auto;text-align:left;padding:clamp(18px,3vw,30px);border:1px solid rgba(255,255,255,.19);border-radius:12px;background:linear-gradient(145deg,rgba(8,7,6,.34),rgba(255,255,255,.055));box-shadow:inset 0 1px rgba(255,255,255,.16),0 14px 36px rgba(0,0,0,.2)}
+.contact-envelope .site-form label{color:#f2dfbd}
+.contact-envelope .site-form input,.contact-envelope .site-form textarea,.contact-envelope .site-form select{border-color:rgba(236,211,165,.42);background:rgba(7,7,7,.34);color:#fff8eb;box-shadow:inset 0 1px 5px rgba(0,0,0,.2)}
+.contact-envelope .site-form input:focus,.contact-envelope .site-form textarea:focus,.contact-envelope .site-form select:focus{outline:2px solid rgba(232,196,119,.58);outline-offset:2px}
+.contact-envelope .contact-details{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:12px 26px;margin-top:26px;color:#f1dfbd;font:13px Arial,sans-serif}
+.contact-envelope .contact-details a,.contact-envelope .contact-details span{color:inherit;text-decoration:none;padding:9px 13px;border:1px solid rgba(238,211,158,.28);border-radius:999px;background:rgba(255,255,255,.07)}
+.contact-envelope .contact-details a:hover{border-color:#e8c477;color:#ffe5ad}
+@media(max-width:620px){.connect{padding:48px 16px}.contact-envelope{padding:32px 16px 24px;border-radius:14px}.envelope-fold{height:76px}.contact-envelope .site-form{padding:18px 14px}.contact-envelope .contact-details{flex-direction:column;gap:10px}.contact-envelope .contact-details a,.contact-envelope .contact-details span{max-width:100%;overflow-wrap:anywhere}}
+@media(prefers-reduced-transparency:reduce){.contact-envelope{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(25,21,15,.96)}}
