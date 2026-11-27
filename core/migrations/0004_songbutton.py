@@ -16,4 +16,11 @@ class Migration(migrations.Migration):
             ],
             options={"ordering": ["slot_number"]},
         ),
+        migrations.RunPython(
+            lambda apps, schema_editor: [
+                apps.get_model("core", "SongButton").objects.get_or_create(slot_number=n)
+                for n in range(1, 11)
+            ],
+            migrations.RunPython.noop,
+        ),
     ]
