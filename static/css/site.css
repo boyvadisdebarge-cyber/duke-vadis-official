@@ -63,3 +63,18 @@
  .banner-content h1{font-size:clamp(40px,10vw,58px);margin:12px 0}
  .banner-content .button{margin-top:10px;padding:13px 16px}
 }
+
+/* Campaign portrait composition: reveal the pendant and restore the gold song title */
+.banner-image{object-position:center 8%}
+.banner-content{top:auto;bottom:clamp(34px,8vh,86px);left:clamp(28px,7vw,110px);right:auto;transform:none;max-width:min(560px,66vw);padding:clamp(16px,2.4vw,30px);background:linear-gradient(100deg,rgba(8,7,6,.38),rgba(8,7,6,.08));border:1px solid rgba(230,197,132,.24);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);box-shadow:0 12px 40px #0003}
+.banner-content:before{inset:6px;border-color:rgba(230,197,132,.12)}
+.banner-content .eyebrow{color:#e6c584;letter-spacing:.22em}
+.banner-content h1{color:#e8c477;font-size:clamp(44px,6.2vw,82px);line-height:.98;text-shadow:0 3px 18px #000d,0 0 28px #d8ad5944;margin:14px 0}
+.banner-content h1 em{color:#f4d99e;font-style:normal}
+.banner-subtitle{color:#fff0d2;text-shadow:0 2px 10px #000}
+@media(max-width:760px){
+ .banner-image{object-position:52% 5%}
+ .banner-content{left:5vw;right:5vw;bottom:92px;max-width:none;padding:16px 17px}
+ .banner-content h1{font-size:clamp(38px,10vw,58px);margin:10px 0}
+ .banner-subtitle{font-size:13px;line-height:1.5}
+}
