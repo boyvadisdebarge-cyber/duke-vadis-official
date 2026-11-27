@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from .forms import BookingRequestForm, ContactMessageForm
-from .models import MusicRelease, PromoBanner, Service, Souvenir, SiteProfile
+from .models import MusicRelease, PromoBanner, Service, SiteProfile, SongButton, Souvenir
 
 def home(request):
     booking_form = BookingRequestForm(prefix="booking")
@@ -25,6 +25,7 @@ def home(request):
         "profile": profile,
         "promo_banners": PromoBanner.objects.filter(is_active=True),
         "releases": MusicRelease.objects.filter(is_published=True),
+        "song_buttons": SongButton.objects.filter(is_active=True),
         "services": Service.objects.filter(is_published=True),
         "souvenirs": Souvenir.objects.filter(is_available=True),
         "booking_form": booking_form,
