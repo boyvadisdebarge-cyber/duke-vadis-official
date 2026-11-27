@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import BookingRequest, ContactMessage, MusicRelease, PromoBanner, Service, SiteProfile, Souvenir
+from .models import BookingRequest, ContactMessage, MusicRelease, PromoBanner, Service, SiteProfile, SongButton, Souvenir
 
 @admin.register(PromoBanner)
 class PromoBannerAdmin(admin.ModelAdmin):
@@ -44,3 +44,11 @@ class ContactMessageAdmin(admin.ModelAdmin):
     list_filter = ("is_read", "created_at")
     search_fields = ("name", "email", "subject", "message")
     readonly_fields = ("created_at",)
+
+
+@admin.register(SongButton)
+class SongButtonAdmin(admin.ModelAdmin):
+    list_display = ("slot_number", "title", "listen_url", "is_active")
+    list_filter = ("is_active",)
+    list_editable = ("title", "listen_url", "is_active")
+    ordering = ("slot_number",)
