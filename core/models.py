@@ -94,3 +94,20 @@ class SongButton(models.Model):
         ordering = ["slot_number"]
     def __str__(self):
         return self.title or f"Song {self.slot_number:02d}"
+
+
+class SongFeatureVideo(models.Model):
+    title = models.CharField(max_length=180, default="Behind the Song")
+    description = models.TextField(blank=True, help_text="A short introduction to the song or video.")
+    video = models.FileField(upload_to="song-feature-videos/", blank=True, help_text="Upload an MP4 or other browser-supported video.")
+    poster_image = models.ImageField(upload_to="song-feature-posters/", blank=True, help_text="Optional cover image shown before the video plays.")
+    is_active = models.BooleanField(default=True)
+    display_order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ["display_order", "-id"]
+        verbose_name = "Song feature video"
+        verbose_name_plural = "Song feature videos"
+
+    def __str__(self):
+        return self.title
