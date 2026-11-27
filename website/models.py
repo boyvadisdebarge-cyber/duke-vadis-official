@@ -2,7 +2,7 @@ from django.db import models
 
 class HomePageContent(models.Model):
     site_name = models.CharField(max_length=120, default="DUKE VADIS")
-    hero_title = models.CharField(max_length=200, default="A SOUND THAT LIFTS THE SOUL")
+    hero_title = models.CharField(max_length=200, default="DUKE VADIS")
     hero_subtitle = models.TextField(default="Welcome to the official home of Duke Vadis.")
     about_text = models.TextField(default="Duke Vadis is driven by faith, creativity and the power of music to inspire.")
     updated_at = models.DateTimeField(auto_now=True)
