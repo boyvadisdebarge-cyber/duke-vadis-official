@@ -103,3 +103,17 @@
 .footer-social-links svg rect,.footer-social-links svg circle{fill:none}
 .footer-social-links svg .solid{fill:currentColor;stroke:none}
 @media(max-width:760px){.site-footer{padding:38px 5vw 20px}.site-footer .footer-nav{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:12px}.site-footer .footer-nav a{font-size:10px;padding:13px 5px}.footer-contact{flex-direction:column;gap:10px}.footer-social-links{gap:8px}.footer-social-links a{padding:9px 12px;font-size:12px}}
+
+/* Final horizontal footer layout */
+.site-footer .footer-nav{display:flex!important;flex-direction:row!important;align-items:stretch;justify-content:space-between;flex-wrap:nowrap}
+.site-footer .footer-nav a{flex:1 1 0;min-width:0}
+.site-footer .footer-social{display:flex!important;flex-direction:row!important;align-items:center;justify-content:center;gap:22px;flex-wrap:nowrap}
+.site-footer .footer-social-links{display:flex!important;flex-direction:row!important;align-items:center;justify-content:center;flex-wrap:nowrap;gap:12px}
+.site-footer .footer-contact{display:flex!important;flex-direction:row!important;align-items:center;justify-content:center;flex-wrap:nowrap}
+@media(max-width:760px){
+ .site-footer .footer-nav{display:flex!important;overflow-x:auto;justify-content:flex-start;gap:8px;scrollbar-width:thin}
+ .site-footer .footer-nav a{flex:0 0 auto;min-width:105px}
+ .site-footer .footer-social{flex-wrap:wrap;gap:12px}
+ .site-footer .footer-social-links{flex-wrap:wrap}
+ .site-footer .footer-contact{flex-wrap:wrap}
+}
