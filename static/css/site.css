@@ -219,3 +219,11 @@ animation:service-metallic-sparkle 32s linear infinite}
 #services .worship-person:nth-of-type(3n){animation-delay:-2.1s}
 #services .worship-person:nth-of-type(4n){animation-delay:-3.4s}
 @media(max-width:620px){#services .worship-scene{height:220px;opacity:.32}}
+
+/* Make the worship crowd atmospheric and smoke-like, not solid silhouettes */
+#services .worship-scene{opacity:.24;filter:blur(.35px);mix-blend-mode:screen}
+#services .worship-crowd{opacity:.86;filter:blur(1.35px) drop-shadow(0 0 18px rgba(220,184,112,.16))}
+#services .worship-person{opacity:.68}
+#services .worship-person:nth-of-type(3n){opacity:.48}
+#services .worship-person:nth-of-type(4n){opacity:.58}
+@media(max-width:620px){#services .worship-scene{opacity:.19}}
