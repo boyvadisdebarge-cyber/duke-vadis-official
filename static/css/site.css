@@ -17,3 +17,22 @@
 .contact-details{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin-top:28px;color:var(--gold);font:13px Arial,sans-serif}
 .contact-form{max-width:700px}.connect{max-width:none;padding-left:10vw;padding-right:10vw}
 @media(max-width:760px){.nav{height:auto;min-height:78px;padding-top:14px;padding-bottom:14px;align-items:flex-start;gap:12px}.nav-links{justify-content:flex-end;gap:10px 14px;max-width:68%}.nav-links a{font-size:9px}.content-section,.booking-section{padding:72px 7vw}.card-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.section-head{display:block}.section-intro{margin-top:18px}.site-form{margin-top:25px}.contact-details{flex-direction:column;align-items:center;gap:12px}}
+
+/* Premium campaign banner */
+.hero-banner{position:relative;min-height:clamp(560px,72vw,790px);height:min(82vh,850px);max-height:900px;overflow:hidden;background:#100d0a;isolation:isolate}
+.banner-track,.banner-slide{position:absolute;inset:0}
+.banner-slide{opacity:0;visibility:hidden;transform:scale(1.035);transition:opacity 1s ease,transform 7s ease,visibility 1s;overflow:hidden}
+.banner-slide.is-active{opacity:1;visibility:visible;transform:scale(1)}
+.banner-image{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:saturate(.88) contrast(1.06)}
+.banner-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,8,7,.9) 0%,rgba(12,10,8,.72) 37%,rgba(12,10,8,.15) 78%),linear-gradient(0deg,rgba(8,7,6,.72),transparent 44%,rgba(8,7,6,.22));}
+.banner-content{position:absolute;z-index:2;left:clamp(28px,10vw,160px);top:50%;transform:translateY(-50%);max-width:min(650px,72vw);padding:clamp(25px,4vw,54px);border:1px solid rgba(230,197,132,.38);background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.035));backdrop-filter:blur(17px) saturate(145%);-webkit-backdrop-filter:blur(17px) saturate(145%);box-shadow:0 25px 80px #0008,inset 0 1px #ffffff24}
+.banner-content:before{content:"";position:absolute;inset:8px;border:1px solid rgba(230,197,132,.14);pointer-events:none}
+.banner-content h1{font-size:clamp(52px,7.4vw,104px);line-height:.94;margin:24px 0;color:#fff7e9;text-shadow:0 6px 35px #0008}
+.banner-subtitle{font:clamp(13px,1.4vw,17px)/1.8 Arial,sans-serif;color:#eee0c8;letter-spacing:.04em;max-width:440px}
+.banner-controls{position:absolute;z-index:5;right:clamp(24px,7vw,100px);bottom:64px;display:flex;align-items:center;gap:18px}
+.banner-arrow,.banner-dot{border:1px solid #e6c58488;background:rgba(12,10,8,.48);color:#f6e9d1;backdrop-filter:blur(12px);cursor:pointer;transition:all .3s ease}
+.banner-arrow{width:42px;height:42px;border-radius:50%;font:24px Georgia,serif}.banner-arrow:hover,.banner-dot:hover,.banner-dot.is-active{background:#d8b56b;color:#17110a;box-shadow:0 0 22px #d8b56b55}
+.banner-dots{display:flex;gap:8px}.banner-dot{width:8px;height:8px;padding:0;border-radius:50%}.banner-dot.is-active{width:25px;border-radius:8px}
+.banner-signature{position:absolute;z-index:3;left:clamp(28px,10vw,160px);bottom:38px;color:#e7d5b5;font:9px Arial,sans-serif;letter-spacing:.25em}.banner-signature span{color:var(--gold);padding:0 10px}
+@media(max-width:760px){.hero-banner{height:690px;min-height:620px;max-height:760px}.banner-image{object-position:58% center}.banner-shade{background:linear-gradient(90deg,rgba(9,8,7,.82),rgba(9,8,7,.35)),linear-gradient(0deg,rgba(8,7,6,.7),transparent 65%)}.banner-content{left:6vw;right:6vw;max-width:none;padding:26px 22px}.banner-content h1{font-size:clamp(48px,13vw,72px)}.banner-controls{right:6vw;bottom:72px}.banner-signature{left:6vw;bottom:34px}}
+@media(prefers-reduced-motion:reduce){.banner-slide,.banner-slide.is-active{transition:none;transform:none}}
