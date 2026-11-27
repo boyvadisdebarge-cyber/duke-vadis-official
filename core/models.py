@@ -83,3 +83,14 @@ class ContactMessage(models.Model):
         ordering = ["-created_at"]
     def __str__(self):
         return f"{self.name}: {self.subject or 'Website enquiry'}"
+
+
+class SongButton(models.Model):
+    slot_number = models.PositiveSmallIntegerField(unique=True, help_text="Number shown on the music button (1–10).")
+    title = models.CharField(max_length=160, blank=True, help_text="Optional song title. Leave blank to show Song 01, Song 02, etc.")
+    listen_url = models.URLField(max_length=500, blank=True, help_text="Paste the song's public audio or streaming link when ready.")
+    is_active = models.BooleanField(default=True)
+    class Meta:
+        ordering = ["slot_number"]
+    def __str__(self):
+        return self.title or f"Song {self.slot_number:02d}"
