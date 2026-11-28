@@ -7,7 +7,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "development-only-change-me")
 DEBUG = os.environ.get("DJANGO_DEBUG", "False").lower() == "true"
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*").split(",")
 CSRF_TRUSTED_ORIGINS = [v for v in os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",") if v]
-INSTALLED_APPS = ["django.contrib.admin","django.contrib.auth","django.contrib.contenttypes","django.contrib.sessions","django.contrib.messages","django.contrib.staticfiles","cloudinary_storage","cloudinary","core"]
+INSTALLED_APPS = ["django.contrib.admin","django.contrib.auth","django.contrib.contenttypes","django.contrib.sessions","django.contrib.messages","django.contrib.staticfiles","core"]
 MIDDLEWARE = ["django.middleware.security.SecurityMiddleware","whitenoise.middleware.WhiteNoiseMiddleware","django.contrib.sessions.middleware.SessionMiddleware","django.middleware.common.CommonMiddleware","django.middleware.csrf.CsrfViewMiddleware","django.contrib.auth.middleware.AuthenticationMiddleware","django.contrib.messages.middleware.MessageMiddleware","django.middleware.clickjacking.XFrameOptionsMiddleware"]
 ROOT_URLCONF = "config.urls"
 TEMPLATES = [{"BACKEND":"django.template.backends.django.DjangoTemplates","DIRS":[BASE_DIR/"templates"],"APP_DIRS":True,"OPTIONS":{"context_processors":["django.template.context_processors.request","django.contrib.auth.context_processors.auth","django.contrib.messages.context_processors.messages"]}}]
@@ -27,11 +27,26 @@ STATIC_ROOT=BASE_DIR/"staticfiles"
 STATICFILES_DIRS=[BASE_DIR/"static"]
 MEDIA_URL="/media/"
 MEDIA_ROOT=BASE_DIR/"media"
+# --- Cloudinary media storage -------------------------------------------------
+# Credentials come only from the environment. Either set CLOUDINARY_URL
+# (cloudinary://API_KEY:API_SECRET@CLOUD_NAME) or all three of
+# CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY and CLOUDINARY_API_SECRET.
+# With neither, uploads fall back to local disk (fine for local dev only).
+def _env(name):
+    return os.environ.get(name, "").strip()
+
+_CLD_PARTS = {"CLOUD_NAME": _env("CLOUDINARY_CLOUD_NAME"), "API_KEY": _env("CLOUDINARY_API_KEY"), "API_SECRET": _env("CLOUDINARY_API_SECRET")}
+CLOUDINARY_URL_VALID = _env("CLOUDINARY_URL").startswith("cloudinary://") and "@" in _env("CLOUDINARY_URL")
+CLOUDINARY_PARTS_COMPLETE = all(_CLD_PARTS.values())
+CLOUDINARY_PARTIAL = (bool(_env("CLOUDINARY_URL")) and not CLOUDINARY_URL_VALID) or (any(_CLD_PARTS.values()) and not CLOUDINARY_PARTS_COMPLETE and not CLOUDINARY_URL_VALID)
+USE_CLOUDINARY = CLOUDINARY_URL_VALID or CLOUDINARY_PARTS_COMPLETE
+if USE_CLOUDINARY:
+    INSTALLED_APPS += ["cloudinary_storage", "cloudinary"]
+    if not CLOUDINARY_URL_VALID:
+        CLOUDINARY_STORAGE = dict(_CLD_PARTS)
 STORAGES = {
     "default": {
-        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage"
-    } if os.environ.get("CLOUDINARY_URL") else {
-        "BACKEND": "django.core.files.storage.FileSystemStorage"
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage" if USE_CLOUDINARY else "django.core.files.storage.FileSystemStorage"
     },
     "staticfiles": {"BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage"},
 }
