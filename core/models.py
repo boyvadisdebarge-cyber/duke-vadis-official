@@ -1,4 +1,5 @@
 from django.db import models
+from .storage import video_storage
 
 class MusicRelease(models.Model):
     title = models.CharField(max_length=180)
@@ -99,7 +100,7 @@ class SongButton(models.Model):
 class SongFeatureVideo(models.Model):
     title = models.CharField(max_length=180, default="Behind the Song")
     description = models.TextField(blank=True, help_text="A short introduction to the song or video.")
-    video = models.FileField(upload_to="song-feature-videos/", blank=True, help_text="Upload an MP4 or other browser-supported video.")
+    video = models.FileField(upload_to="song-feature-videos/", storage=video_storage, blank=True, help_text="Upload an MP4 or other browser-supported video.")
     poster_image = models.ImageField(upload_to="song-feature-posters/", blank=True, help_text="Optional cover image shown before the video plays.")
     is_active = models.BooleanField(default=True)
     display_order = models.PositiveIntegerField(default=0)
